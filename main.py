@@ -15,7 +15,7 @@ async def on_message(message):
 
     if message.content.startswith('/SG'):
         helpText = ""
-        print(f"{message.author} says \"{message.content}\"")
+        print(f"{message.author} ({message.author.id}) says \"{message.content}\"")
         if message.content==("/SG"):
             await message.channel.send(f'Hello! <@{message.author.id}>\nMy Name is Stock Genie!\nI am a Discord bot that can get you stock information.\ntry \"/SG help\" for available commands.')
 
@@ -32,7 +32,7 @@ async def on_message(message):
 
         elif message.content[len(message.content)-4] == ("i") and message.content[len(message.content)-3] == ("n") and message.content[len(message.content)-2] == ("f") and message.content[len(message.content)-1] == ("o") and len(message.content)>9:
 
-            stockSymbol = message.content.replace("/SG ", "").replace(" info", "")
+            stockSymbol = message.content.replace("/SG ", "").replace(" info", "").upper()
             if(checkStockValid(stockSymbol)):
                 info = getStockInfo(stockSymbol)
                 await message.channel.send(info)
@@ -40,7 +40,7 @@ async def on_message(message):
                 await message.channel.send(f'Invalid Stock Symbol\nTry: /SG help')
 
         elif message.content[len(message.content) - 5] == ("p") and message.content[len(message.content) - 4] == ("r") and message.content[len(message.content) - 3] == ("i") and message.content[len(message.content) - 2] == ("c") and message.content[len(message.content) - 1] == ("e") and len(message.content)>10:
-            stockSymbol = message.content.replace("/SG ", "").replace(" price", "")
+            stockSymbol = message.content.replace("/SG ", "").replace(" price", "").upper()
             if (checkStockValid(stockSymbol)):
                 priceInfo = getStockPrice(stockSymbol)
                 await message.channel.send(priceInfo)
