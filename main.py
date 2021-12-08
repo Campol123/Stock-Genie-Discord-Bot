@@ -17,10 +17,10 @@ async def on_message(message):
         helpText = ""
         print(f"{message.author} says \"{message.content}\"")
         if message.content==("/SG"):
-            await message.channel.send(f'Hello! {message.author}\nMy Name is Stock Genie!\nI am a Discord bot that can get you stock information.\ntry \"/SG help\" for available commands.')
+            await message.channel.send(f'Hello! <@{message.author.id}>\nMy Name is Stock Genie!\nI am a Discord bot that can get you stock information.\ntry \"/SG help\" for available commands.')
 
         elif message.content==("/SG you smell"):
-            await message.channel.send(f'fuck right off {message.author}')
+            await message.channel.send(f'fuck right off <@{message.author.id}>')
 
         elif message.content == ("/SG help"):
             for x in range(len(commands)):
